@@ -1,7 +1,5 @@
 # WallpaperHaxPlus
-Stupid little C# program that "overrides" stupid group policies by displaying a window with the user's set wallpaper on top of the desktop. Stupid little hack. Stupid all the things. More like WallpaperHaxMinus, really.
-
-Tested on Windows 7 and 8.1. Seems to disappear when clicking the show desktop button on 8.1. Why? Who knows.
+Stupid little C# program that "overrides" stupid group policies by displaying a window with the user's set wallpaper on top of the desktop. Stupid little hack. Stupid all the things. More like WallpaperHaxMinus, really. Tested on Windows 7 and 8.1.
 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -25,6 +23,7 @@ Can you tell I'm a big fan?
 * Redraws every time it comes into focus. Blame WinForms.
 * Icons are hidden behind the hax window. Along with that devil of a wallpaper you were trying to get rid of in the first place.
 * Sometimes decides to be weird when the desktop is redrawn. Like changing your _actual_ wallpaper to solid white.
+* Seems to disappear when clicking the show desktop button on 8.1.
 * Over all just a really stupid hack.
 * Did I mention it's stupid?
 * Most importantly, it's a **work in progress.**
