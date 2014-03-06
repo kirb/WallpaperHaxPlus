@@ -107,6 +107,16 @@ namespace WallpaperHaxPlus
 
 		private void showIconsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			OpenDesktop();
+		}
+
+		private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
+		{
+			OpenDesktop();
+		}
+
+		private void OpenDesktop()
+		{
 			Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)); // TODO: laaaaame
 		}
 
