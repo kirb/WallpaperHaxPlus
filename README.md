@@ -20,7 +20,7 @@ Can you tell I'm a big fan?
 
 ## What's not so cool
 * Redraws every time it comes into focus. Blame WinForms.
-* Icons are hidden behind the hax window. Along with that devil of a wallpaper you were trying to get rid of in the first place.
+* Icons are hidden behind the hax window. Along with that devil of a wallpaper you were trying to get rid of in the first place. (Sort-of worked around this by adding a notification area icon that allows quick access to the desktop via an Explorer window. Stupid hack.)
 * Sometimes decides to be weird when the desktop is redrawn. Like changing your _actual_ wallpaper to solid white.
 * Seems to disappear when clicking the show desktop button on 8.1.
 * Over all just a really stupid hack.
