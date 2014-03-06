@@ -33,7 +33,7 @@ namespace WallpaperHaxPlus
 			IntPtr defviewHwnd = FindWindowEx(progmanHwnd, IntPtr.Zero, "SHELLDLL_DefView", null);
 			SetParent(this.Handle, FindWindowEx(defviewHwnd, IntPtr.Zero, "SysListView32", null));
 
-			// hide console
+			// hide powershell
 			ShowWindow(FindWindowEx(IntPtr.Zero, IntPtr.Zero, "ConsoleWindowClass", null), SW_HIDE);
 
 			// load image
@@ -50,7 +50,7 @@ namespace WallpaperHaxPlus
 					break;
 
 				case 1:
-				case 2: // TOOD: this is probably wrong
+				case 2:
 					this.BackgroundImageLayout = ImageLayout.Stretch;
 					break;
 
@@ -98,10 +98,10 @@ namespace WallpaperHaxPlus
 
 		private void SizeToFit()
 		{
-			this.Top = 0;
-			this.Left = 0;
-			this.Width = Screen.PrimaryScreen.Bounds.Width;
-			this.Height = Screen.PrimaryScreen.Bounds.Height;
+			this.Top = -1;
+			this.Left = -1;
+			this.Width = Screen.PrimaryScreen.Bounds.Width + 2;
+			this.Height = Screen.PrimaryScreen.Bounds.Height + 2;
 		}
 	}
 }
