@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace WallpaperHaxPlus
 {
@@ -102,6 +103,19 @@ namespace WallpaperHaxPlus
 			this.Left = -1;
 			this.Width = Screen.PrimaryScreen.Bounds.Width + 2;
 			this.Height = Screen.PrimaryScreen.Bounds.Height + 2;
+		}
+
+		private void showIconsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)); // TODO: laaaaame
+		}
+
+		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (MessageBox.Show("This will reset your wallpaper back to the default.", "WallpaperHax", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+			{
+				Environment.Exit(0);
+			}
 		}
 	}
 }
