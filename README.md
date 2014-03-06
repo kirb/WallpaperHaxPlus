@@ -19,7 +19,6 @@ $hax.ShowDialog()
 Can you tell I'm a big fan?
 
 ## What's not so cool
-* You're stuck with a PowerShell icon in the taskbar, even though there's no windows attached to it. (WallpaperHax sends a `ShowWindow(window, SW_HIDE)` message to the console window.)
 * Redraws every time it comes into focus. Blame WinForms.
 * Icons are hidden behind the hax window. Along with that devil of a wallpaper you were trying to get rid of in the first place.
 * Sometimes decides to be weird when the desktop is redrawn. Like changing your _actual_ wallpaper to solid white.
