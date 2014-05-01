@@ -37,6 +37,7 @@
 			this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -44,7 +45,7 @@
 			// 
 			this.showIconsToolStripMenuItem.Name = "showIconsToolStripMenuItem";
 			this.showIconsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-			this.showIconsToolStripMenuItem.Text = "&Show Icons";
+			this.showIconsToolStripMenuItem.Text = "S&how Icons";
 			this.showIconsToolStripMenuItem.Click += new System.EventHandler(this.showIconsToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem
@@ -71,18 +72,19 @@
 			this.versionToolStripMenuItem.Enabled = false;
 			this.versionToolStripMenuItem.Name = "versionToolStripMenuItem";
 			this.versionToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-			this.versionToolStripMenuItem.Text = "Version 1.0 beta 2";
+			this.versionToolStripMenuItem.Text = "Version 1.0 beta 3";
 			// 
 			// contextMenuStrip
 			// 
 			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showIconsToolStripMenuItem,
+            this.settingsToolStripMenuItem,
             this.exitToolStripMenuItem,
             this.toolStripSeparator1,
             this.aboutToolStripMenuItem,
             this.versionToolStripMenuItem});
 			this.contextMenuStrip.Name = "contextMenuStrip";
-			this.contextMenuStrip.Size = new System.Drawing.Size(167, 98);
+			this.contextMenuStrip.Size = new System.Drawing.Size(167, 142);
 			// 
 			// notifyIcon
 			// 
@@ -92,12 +94,19 @@
 			this.notifyIcon.Visible = true;
 			this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
 			// 
+			// settingsToolStripMenuItem
+			// 
+			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+			this.settingsToolStripMenuItem.Text = "&Settings";
+			this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+			// 
 			// WallpaperForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Black;
-			this.ClientSize = new System.Drawing.Size(8, 8);
+			this.ClientSize = new System.Drawing.Size(98, 98);
 			this.ControlBox = false;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.MaximizeBox = false;
@@ -106,6 +115,7 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WallpaperForm_FormClosing);
+			this.Load += new System.EventHandler(this.WallpaperForm_Load);
 			this.LocationChanged += new System.EventHandler(this.WallpaperForm_LocationChanged);
 			this.SizeChanged += new System.EventHandler(this.WallpaperForm_SizeChanged);
 			this.contextMenuStrip.ResumeLayout(false);
@@ -122,6 +132,7 @@
 		private System.Windows.Forms.ToolStripMenuItem versionToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
 		private System.Windows.Forms.NotifyIcon notifyIcon;
+		private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
 
 
 	}

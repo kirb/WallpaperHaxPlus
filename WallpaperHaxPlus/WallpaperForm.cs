@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Timers;
 
 namespace WallpaperHaxPlus
 {
@@ -37,10 +38,14 @@ namespace WallpaperHaxPlus
 			// hide powershell
 			ShowWindow(FindWindowEx(IntPtr.Zero, IntPtr.Zero, "ConsoleWindowClass", null), SW_HIDE);
 
-			// load image
+			// do our thing
+			UpdateWallpaper();
+		}
+
+		public void UpdateWallpaper()
+		{
 			this.BackgroundImage = Image.FromFile((string)Registry.GetValue("HKEY_CURRENT_USER\\Control Panel\\Desktop", "Wallpaper", "C:\\Windows\\Web\\Wallpaper\\Windows\\img0.jpg"));
 
-			// set sizing
 			Int32 style = Convert.ToInt32(Registry.GetValue("HKEY_CURRENT_USER\\Control Panel\\Desktop", "WallpaperStyle", 2));
 
 			switch (style)
@@ -50,12 +55,12 @@ namespace WallpaperHaxPlus
 					this.BackgroundImageLayout = ImageLayout.Center;
 					break;
 
-				case 1:
 				case 2:
 					this.BackgroundImageLayout = ImageLayout.Stretch;
 					break;
 
-				case 3:
+				case 6:
+				case 10:
 					this.BackgroundImageLayout = ImageLayout.Zoom;
 					break;
 			}
@@ -97,6 +102,22 @@ namespace WallpaperHaxPlus
 			SizeToFit();
 		}
 
+		private void WallpaperForm_Load(object sender, EventArgs e)
+		{
+			Int32 lastVersion = Convert.ToInt32(Registry.GetValue("HKEY_CURRENT_USER\\Software\\PCHax Technology\\WallpaperHaxPlus", "LastVersion", 0));
+
+			if (lastVersion == 0)
+			{
+				System.Timers.Timer timer = new System.Timers.Timer(500);
+				timer.Enabled = true;
+				timer.AutoReset = false;
+				timer.Elapsed += new ElapsedEventHandler(ShowSettingsTimer_Elapsed);
+				timer.Start();
+			}
+
+			Registry.SetValue("HKEY_CURRENT_USER\\Software\\PCHax Technology\\WallpaperHaxPlus", "LastVersion", 1, RegistryValueKind.DWord);
+		}
+
 		private void SizeToFit()
 		{
 			this.Top = -1;
@@ -112,7 +133,10 @@ namespace WallpaperHaxPlus
 
 		private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
 		{
-			OpenDesktop();
+			if (e.Button == MouseButtons.Left)
+			{
+				OpenDesktop();
+			}
 		}
 
 		private void OpenDesktop()
@@ -126,6 +150,23 @@ namespace WallpaperHaxPlus
 			{
 				Environment.Exit(0);
 			}
+		}
+
+		private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ShowSettings();
+		}
+
+		private void ShowSettingsTimer_Elapsed(object sender, EventArgs e)
+		{
+			ShowSettings(); // wtf
+		}
+
+		private void ShowSettings()
+		{
+			WelcomeForm welcomeForm = new WelcomeForm();
+			welcomeForm.WallpaperForm = this;
+			welcomeForm.ShowDialog();
 		}
 	}
 }
